@@ -1,5 +1,7 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint:recommended"
+  ],
   "rulesDirectory": [
     "codelyzer"
   ],
@@ -53,7 +55,7 @@
     ],
     "no-empty": false,
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params"
     ],
     "no-non-null-assertion": true,
@@ -66,7 +68,8 @@
     ],
     "quotemark": [
       true,
-      "single"
+      "single",
+      "avoid-escape"
     ],
     "semicolon": {
       "options": [
@@ -108,7 +111,8 @@
       "options": [
         "ban-keywords",
         "check-format",
-        "allow-pascal-case"
+        "allow-pascal-case",
+        "allow-leading-underscore"
       ]
     },
     "whitespace": {
@@ -147,6 +151,50 @@
       "element",
       "app",
       "kebab-case"
+    ],
+    "object-curly-spacing": [true, "always"],
+    "import-destructuring-spacing": true,
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "groups": [{
+          "name": "app",
+          "match": "^@app",
+          "order": 20
+        },
+        {
+          "name": "shared-lib",
+          "match": "^@shared-lib",
+          "order": 20
+        },
+        {
+          "name": "relative_paths",
+          "match": "^[.][.]?",
+          "order": 20
+        },
+        {
+          "name": "scoped_paths",
+          "match": "^@",
+          "order": 10
+        },
+        {
+          "name": "absolute_paths",
+          "match": "^[a-zA-Z]",
+          "order": 10
+        },
+        {
+          "match": "",
+          "order": 10
+        }]
+      }
+    ],
+    "trailing-comma": [
+      false,
+      {
+        "multiline":"always",
+        "singleline": "never"
+      }
     ]
   }
 }
